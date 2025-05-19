@@ -1,0 +1,230 @@
+{% extends 'accounts/base.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<style>
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+  }
+
+  .hero {
+    background: linear-gradient(rgba(0, 128, 128, 0.7), rgba(255, 87, 34, 0.7)),
+      url('/static/images/model.jpg') no-repeat center center/cover;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    padding: 0 1rem;
+  }
+
+  .hero-content h1 {
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .hero-content p {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+  }
+
+  .btn {
+    padding: 0.8rem 1.5rem;
+    border-radius: 5px;
+    text-transform: uppercase;
+    font-weight: bold;
+    margin: 0.5rem;
+    transition: background-color 0.3s ease;
+    border: none;
+    cursor: pointer;
+  }
+
+  .btn-primary {
+    background-color: #00bcd4;
+    color: white;
+  }
+
+  .btn-primary:hover {
+    background-color: #0097a7;
+  }
+
+  .btn-secondary {
+    background-color: #ff5722;
+    color: white;
+  }
+
+  .btn-secondary:hover {
+    background-color: #e64a19;
+  }
+
+  .main-content {
+    padding: 5rem 1rem;
+    text-align: center;
+  }
+
+  .main-content h2 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    color: #00bcd4;
+  }
+
+  .container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    max-width: 1000px;
+    margin: 0 auto 4rem;
+  }
+
+  .feature-card {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.2);
+  }
+
+  form {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: left;
+  }
+
+  form label {
+    display: block;
+    margin-bottom: 0.3rem;
+    font-weight: bold;
+    color: #333;
+  }
+
+  form input,
+  form textarea {
+    width: 100%;
+    padding: 0.75rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1rem;
+  }
+
+  form textarea {
+    resize: vertical;
+    height: 150px;
+  }
+
+  footer {
+    background-color: #2d2d2d;
+    color: white;
+    padding: 2rem 1rem;
+    text-align: center;
+  }
+
+  footer h3 {
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+  }
+
+  footer ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  footer ul li {
+    margin: 0.5rem 0;
+  }
+
+  footer ul a {
+    color: #ffffff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+
+  footer ul a:hover {
+    color: #ff5722;
+  }
+
+  @media (max-width: 768px) {
+    .hero-content h1 {
+      font-size: 2rem;
+    }
+
+    .hero-content p {
+      font-size: 1rem;
+    }
+
+    .main-content h2 {
+      font-size: 2rem;
+    }
+  }
+</style>
+
+<!-- Hero Section -->
+<div class="hero">
+  <div class="hero-content">
+    <h1>Welcome to Our Product Hub</h1>
+    <p>Shop, manage, and explore — all in one place.</p>
+    <a href="{% url 'register' %}" class="btn btn-primary">Register</a>
+    <a href="{% url 'login' %}" class="btn btn-secondary">Login</a>
+  </div>
+</div>
+
+<!-- Main Content Section -->
+<section class="main-content">
+  <h2>Why Choose Us?</h2>
+  <div class="container">
+    <div class="feature-card">
+      <h4>Fast Access</h4>
+      <p>Sign up and start shopping within seconds — simple and fast.</p>
+    </div>
+    <div class="feature-card">
+      <h4>Top Security</h4>
+      <p>Your data and transactions are protected at every step.</p>
+    </div>
+    <div class="feature-card">
+      <h4>Great Products</h4>
+      <p>Hand-picked quality products just for you.</p>
+    </div>
+  </div>
+
+  <h2>Contact Us</h2>
+  <form action="#" method="post">
+    {% csrf_token %}
+    <label for="name">Your Name</label>
+    <input type="text" id="name" name="name" placeholder="Enter your name" required>
+
+    <label for="email">Your Email</label>
+    <input type="email" id="email" name="email" placeholder="Enter your email" required>
+
+    <label for="message">Your Message</label>
+    <textarea id="message" name="message" placeholder="Type your message here" required></textarea>
+
+    <button type="submit" class="btn btn-primary">Send Message</button>
+  </form>
+</section>
+
+<!-- Footer -->
+<footer>
+  <h3>Get in Touch</h3>
+  <ul>
+    <li><a href="#">Privacy Policy</a></li>
+    <li><a href="#">Terms of Service</a></li>
+    <li><a href="#">Contact Us</a></li>
+  </ul>
+  <p>&copy; 2023 Your Company Name. All rights reserved.</p>
+</footer>
+{% endblock %}

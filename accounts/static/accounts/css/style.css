@@ -1,0 +1,258 @@
+:root {
+  --primary-color: #4f46e5;       /* Indigo-600 */
+  --primary-hover: #4338ca;       /* Indigo-700 */
+  --secondary-color: #059669;     /* Emerald-600 */
+  --secondary-hover: #047857;     /* Emerald-700 */
+  --text-color: #1f2937;          /* Gray-800 */
+  --error-color: #dc2626;         /* Red-600 */
+}
+
+/* Reset and base */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: white;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: var(--text-color);
+  margin: 0;
+  padding: 0;
+}
+
+/* Header styling */
+header {
+  background-color: #00796b;
+  padding: 16px 40px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Navigation inside the header */
+header nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Left navigation links */
+.nav-left {
+  display: flex;
+  gap: 24px;
+}
+
+/* Right navigation buttons */
+.nav-right {
+  display: flex;
+  align-items: center;
+}
+
+/* Navigation links */
+header nav a {
+  color: white;
+  font-weight: 600;
+  font-size: 1rem;
+  text-decoration: none;
+  padding: 8px 12px;
+  border-radius: 6px;
+  transition: background-color 0.3s ease;
+}
+
+/* Hover effect for links */
+header nav a:hover {
+  background-color: #004d40;
+}
+
+/* Styling for buttons */
+.btn {
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  text-transform: uppercase;
+  font-weight: bold;
+  margin-left: 10px;
+}
+
+/* Responsive design adjustments */
+@media (max-width: 600px) {
+  header nav {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .nav-left,
+  .nav-right {
+    justify-content: center;
+  }
+}
+/* Responsive nav - stack links on smaller screens */
+@media (max-width: 600px) {
+  header nav {
+    flex-direction: column;
+    gap: 12px;
+  }
+}
+
+/* Container for the form */
+.container {
+  background: #fff;
+  padding: 30px 40px;
+  border-radius: 12px;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+  max-width: 600px;
+  margin: 60px auto;
+  animation: fadeIn 0.8s ease forwards;
+}
+
+/* Each label + input group spacing */
+.form-group {
+  margin-bottom: 18px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Style for labels */
+label {
+  margin-bottom: 6px;
+  font-weight: 600;
+  color: var(--text-color);
+}
+
+/* Inputs take full width, nice padding and border */
+input, select, textarea {
+  width: 100%;
+  padding: 10px 14px;
+  font-size: 1rem;
+  border: 1.5px solid #ccc;
+  border-radius: 8px;
+  transition: border-color 0.3s ease;
+  font-family: inherit;
+  color: var(--text-color);
+}
+
+/* Input focus state */
+input:focus, select:focus, textarea:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 5px var(--primary-color);
+}
+
+/* Error messages list */
+.errorlist {
+  color: var(--error-color);
+  list-style-type: none;
+  margin-top: 6px;
+  font-size: 0.9rem;
+  padding-left: 0;
+}
+
+/* Buttons consistent with your theme */
+button, .btn {
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(79, 70, 229, 0.4);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  margin-top: 12px;
+}
+
+button:hover, .btn:hover {
+  background-color: var(--primary-hover);
+  box-shadow: 0 6px 10px rgba(67, 56, 202, 0.6);
+}
+
+/* Form footer styling */
+.form-footer {
+  margin-top: 16px;
+  font-size: 0.95rem;
+  text-align: center;
+}
+
+.form-footer a {
+  color: var(--primary-color);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.form-footer a:hover {
+  text-decoration: underline;
+}
+
+.text-center {
+  text-align: center;
+  margin-top: 80px;
+}
+
+.lead {
+  font-size: 1.25rem;
+  margin-bottom: 24px;
+  color: var(--text-color);
+}
+
+.btn {
+  display: inline-block;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 1.1rem;
+  cursor: pointer;
+  text-decoration: none;
+  color: white;
+  box-shadow: 0 4px 6px rgba(79, 70, 229, 0.4);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  margin-right: 12px;
+}
+
+.btn-primary {
+  background-color: var(--primary-color);
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-hover);
+  box-shadow: 0 6px 10px rgba(67, 56, 202, 0.6);
+}
+
+.btn-success {
+  background-color: var(--secondary-color);
+}
+
+.btn-success:hover {
+  background-color: var(--secondary-hover);
+  box-shadow: 0 6px 10px rgba(5, 150, 105, 0.6);
+}
+
+.me-2 {
+  margin-right: 12px;
+}
+
+/* Fade-in animation */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive tweaks */
+@media (max-width: 480px) {
+  .container {
+    margin: 40px 20px;
+    padding: 25px 20px;
+  }
+  header {
+    padding: 12px 20px;
+  }
+  header nav {
+    gap: 16px;
+  }
+}
+
+
+.container {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+
